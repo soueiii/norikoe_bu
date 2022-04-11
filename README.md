@@ -27,9 +27,8 @@ https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,Ruby,SQL
 - フレームワーク：Ruby on Rails,bootstrap
-- JSライブラリ：jQuery
 - IDE：Cloud9
 
 ## 使用素材
@@ -41,4 +40,3 @@ https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3
 -### フォント素材
 - Font Free
 - https://fontfree.me/
--
