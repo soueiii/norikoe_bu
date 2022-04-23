@@ -1,4 +1,4 @@
-# のりこえ部
+#*のりこえ部*
 
 ## サイト概要
 部活においての辛さの種類（体罰、言葉の暴力、体力的に辛いなど）、辛さのレベルごと（精神的に限界、疲れているなど）に分けて質問ができます。
@@ -26,23 +26,24 @@
 部活が辛く誰かに相談したい時。
 耐え抜く考え方を知りたいとき、逃げたくなった時など。
 
-## 設計書
+### 設計書
+- [テーブル設計](https://docs.google.com/spreadsheets/d/1Dic3Y4pCDx-a_ffNq-SmX3nE-4hU4-k1pQbYmDac140/edit#gid=129877452)
+- [詳細設計](https://docs.google.com/spreadsheets/d/1kzRFj1blsPBUnRVWgtYa5IOhgsiI1Uz2MchFJxY7GBU/edit#gid=1550541767)
+- [ER図](https://app.diagrams.net/#G1gcunLa2_HS-epuCu8igPSCPw73gkkinS)
+-
 
-## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3hiY/edit#gid=0
+### [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3hiY/edit#gid=0)
 
-## 開発環境
+### 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,Ruby,SQL
 - フレームワーク：Ruby on Rails,bootstrap
 - IDE：Cloud9
 
-## 使用素材
-### 写真素材
-- ぱくたそ
-- https://www.pakutaso.com/
-- O-DAN
-- https://o-dan.net/ja/
--### フォント素材
-- Font Free
-- https://fontfree.me/
+### 使用素材
+#### 写真素材
+- [ぱくたそ](https://www.pakutaso.com/)
+- [storyset](https://storyset.com/)
+- [unsplash](https://unsplash.com/)
+#### フォント素材
+- [Font Free](https://fontfree.me/)
