@@ -8,8 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-   <%= current_user.name %>様がログイン中
+  <% if user_signed_in? %>
+   <%= current_user.name %>さんがログイン中
    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <% else %>
+   <%= link_to "ログイン", user_session_path %>すると相談ができます
+  <% end %>
   <body>
     <%= yield %>
   </body>

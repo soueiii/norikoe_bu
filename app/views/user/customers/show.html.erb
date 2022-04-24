@@ -1,0 +1,9 @@
+<h1>マイページ</h1>
+ <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"120x120" %><br>
+ <%= @user.name %><br>
+ <%= @user.club %><br>
+ <%= @user.self_introduction %><br>
+ <% if @user.id == current_user.id %>
+  <p><%= link_to "プロフィールを編集する", edit_user_customer_path(@user) %></p>
+ <% end %>
+  

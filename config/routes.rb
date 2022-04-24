@@ -5,15 +5,13 @@ Rails.application.routes.draw do
    sessions: 'user/sessions'
  }
 
-  namespace :user do
-   root to: 'homes#index'
-  end
-
-
-
-  devise_for :admin,skip: [:registrations, :passwords] ,controllers: {
+ devise_for :admin,skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
-  }
+ }
 
+  namespace :user do
+   resources :customers
+    root to: 'homes#index'
+  end
 
 end

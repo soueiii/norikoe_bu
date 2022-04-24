@@ -3,10 +3,6 @@
 class User::RegistrationsController < Devise::RegistrationsController
    before_action :configure_sign_up_params, only: [:create]
 
-  def after_sign_in_path_for(resource)
-    user_root_path(resource)
-  end
-
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -70,6 +66,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-   devise_parameter_sanitizer.permit(:sign_up,keys:[:name, :image_id, :club, :self_introduction])
+   devise_parameter_sanitizer.permit(:sign_up,keys:[:name, :image, :club, :self_introduction])
   end
 end
