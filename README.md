@@ -30,7 +30,6 @@
 - [テーブル設計](https://docs.google.com/spreadsheets/d/1Dic3Y4pCDx-a_ffNq-SmX3nE-4hU4-k1pQbYmDac140/edit#gid=129877452)
 - [詳細設計](https://docs.google.com/spreadsheets/d/1kzRFj1blsPBUnRVWgtYa5IOhgsiI1Uz2MchFJxY7GBU/edit#gid=1550541767)
 - [ER図](https://app.diagrams.net/#G1gcunLa2_HS-epuCu8igPSCPw73gkkinS)
--
 
 ### [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3hiY/edit#gid=0)
 
