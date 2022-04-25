@@ -11,7 +11,7 @@
   <% if user_signed_in? %>
    <%= current_user.name %>さんがログイン中
    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-   <%= link_to "マイページヘ",user_customer_path(@user) %>
+   <%= link_to "マイページヘ",user_customer_path(current_user) %>
   <% else %>
    <%= link_to "ログイン", user_session_path %>すると相談ができます
   <% end %>

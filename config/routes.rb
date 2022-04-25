@@ -10,8 +10,10 @@ Rails.application.routes.draw do
  }
 
   namespace :user do
-   resources :customers
-    root to: 'homes#index'
+   resources :customers, only: [:show, :edit, :uodate]
+   root to: 'homes#index'
+   get 'customers/:id/confirm' => 'customers#confirm', as: 'confirm'
+   patch 'customer/:id/unsubscribe' =>'customers#unsubscribe', as: 'unsubscribe'
   end
 
 end
