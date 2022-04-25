@@ -1,0 +1,11 @@
+<%= flash[:notic] %>
+<h4>相談ジャンル</h4>
+<p><%= @counseling.genre.genre %></p>
+<h4>辛さのレベル(1~5)</h4>
+<p><%= @counseling.level %></p>
+<h4>相談タイトル</h4>
+<p><%= @counseling.title %></p>
+<h4>相談内容</h4>
+<p><%= @counseling.content %></p>
+
+<p><%= link_to "この相談を編集する", edit_user_customer_path(@user) %></p>

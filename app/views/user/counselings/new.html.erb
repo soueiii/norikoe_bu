@@ -1,0 +1,17 @@
+<h1>相談を投稿する</h1>
+<%= form_with model:@counseling, url: user_counselings_path,local:true do |f| %>
+
+  <%= f.label :title,"相談タイトル" %>
+  <%= f.text_field :title %><br>
+
+  相談のジャンル
+  <%= collection_select(:genre, :name, @genres, :id, :genre) %><br>
+
+  <%= f.label :level,"辛さのレベル" %>(1~5で選択して下さい。)
+  <%= f.number_field :level, in: 1..5 %><br>
+
+  <%= f.label :content,"相談内容" %>
+  <%= f.text_area :content %><br>
+
+  <%= f.submit'相談を投稿する' %>
+<% end %>

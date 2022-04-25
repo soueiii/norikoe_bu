@@ -65,3 +65,6 @@ gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+group :development, :test do
+  gem 'pry-rails'
+end
