@@ -1,6 +1,5 @@
-<h1>マイページ</h1>
+<h1> <%= @user.name %>さんのマイページ</h1>
  <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"120x120" %><br>
- <%= @user.name %><br>
  <%= @user.club %><br>
  <%= @user.self_introduction %><br>
  <% if @user.id == current_user.id %>
@@ -8,10 +7,10 @@
   <p><%= link_to "退会はこちら", user_confirm_path %></p>
  <% end %>
 
-<h2>相談タイトル一覧</h2>
- <% @counselings.each do |counseling| %>
-  <p><%= counseling.title %></p>
-  <% if counseling.user.id == current_user.id %>
-   <p><%= link_to "この相談を編集する", edit_user_counseling_path(counseling) %></p>
- <% end %>
+<%if current_user.id == @user.id %>
+ <h2>相談タイトル一覧</h2>
+  <% @counselings.each do |counseling| %>
+   <p><%= counseling.title %></p>
+   <p><%= link_to "この相談の詳細を見る", user_counseling_path(counseling) %></p>
+  <% end %>
 <% end %>

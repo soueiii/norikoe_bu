@@ -1,4 +1,5 @@
 class User::CounselingsController < ApplicationController
+  
    before_action :authenticate_user!, except: [:index]
   def new
     @counseling = Counseling.new
@@ -15,7 +16,6 @@ class User::CounselingsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @counseling = Counseling.find(params[:id])
   end
 
@@ -32,6 +32,9 @@ class User::CounselingsController < ApplicationController
   end
 
   def destroy
+    @counseling = Counseling.find(params[:id])
+    @counseling.destroy
+    redirect_to user_customer_path(current_user)
   end
 
    private
