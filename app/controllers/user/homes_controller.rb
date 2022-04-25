@@ -1,3 +1,5 @@
 class User::HomesController < ApplicationController
-  def index; end
+  def index
+    @genres = Genre.all
+  end
 end
