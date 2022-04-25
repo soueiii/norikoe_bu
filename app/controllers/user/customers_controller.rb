@@ -21,7 +21,7 @@ class User::CustomersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
-    flash[:notic] = "またお悩みがあればいつでもお待ちしております。ご利用ありがとうございました。"
+    flash[:notic] = 'またお悩みがあればいつでもお待ちしております。ご利用ありがとうございました。'
     redirect_to user_root_path
   end
 
@@ -31,4 +31,3 @@ class User::CustomersController < ApplicationController
     params.require(:user).permit(:name, :image, :self_introduction, :club, :email, :name)
   end
 end
-
