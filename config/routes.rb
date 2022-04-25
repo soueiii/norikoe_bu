@@ -10,7 +10,7 @@ Rails.application.routes.draw do
  }
 
   namespace :user do
-   resources :counselings
+   resources :counselings, only: [:create, :destroy, :edit, :new, :show, :update]
    resources :customers, only: [:show, :edit, :update]
    root to: 'homes#index'
    get 'customers/:id/confirm' => 'customers#confirm', as: 'confirm'

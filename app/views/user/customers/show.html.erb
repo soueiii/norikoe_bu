@@ -8,3 +8,10 @@
   <p><%= link_to "退会はこちら", user_confirm_path %></p>
  <% end %>
 
+<h2>相談タイトル一覧</h2>
+ <% @counselings.each do |counseling| %>
+  <p><%= counseling.title %></p>
+  <% if counseling.user.id == current_user.id %>
+   <p><%= link_to "この相談を編集する", edit_user_counseling_path(counseling) %></p>
+ <% end %>
+<% end %>

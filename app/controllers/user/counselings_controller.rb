@@ -20,9 +20,15 @@ class User::CounselingsController < ApplicationController
   end
 
   def edit
+    @counseling = Counseling.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
+    @counseling = Counseling.find(params[:id])
+    @counseling.genre_id = params[:genre][:name]
+    @counseling.update(counseling_params)
+    redirect_to user_counseling_path(@counseling)
   end
 
   def destroy

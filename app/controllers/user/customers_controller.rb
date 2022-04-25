@@ -1,6 +1,7 @@
 class User::CustomersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @counselings = current_user.counselings.all
   end
 
   def edit

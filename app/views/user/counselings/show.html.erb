@@ -8,4 +8,6 @@
 <h4>相談内容</h4>
 <p><%= @counseling.content %></p>
 
-<p><%= link_to "この相談を編集する", edit_user_customer_path(@user) %></p>
+<% if @counseling.user.id == current_user.id %>
+ <p><%= link_to "この相談を編集する", edit_user_counseling_path(@counseling) %></p>
+<% end %>
