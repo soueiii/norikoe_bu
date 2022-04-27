@@ -10,10 +10,12 @@
   </head>
   <% if user_signed_in? %>
    <%= current_user.name %>さんがログイン中
+   <%= link_to "トップページ（相談一覧）",user_root_path %>
    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
    <%= link_to "マイページヘ",user_customer_path(current_user) %>
    <%= link_to "相談する",new_user_counseling_path %>
   <% else %>
+   <%= link_to "トップページ（相談一覧）",user_root_path %>
    <%= link_to "ログイン", user_session_path %>すると相談ができます
   <% end %>
   <body>

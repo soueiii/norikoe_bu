@@ -1,5 +1,5 @@
 class User::CounselingsController < ApplicationController
-  
+
    before_action :authenticate_user!, except: [:index]
   def new
     @counseling = Counseling.new
@@ -17,6 +17,7 @@ class User::CounselingsController < ApplicationController
 
   def show
     @counseling = Counseling.find(params[:id])
+    @answer = Answer.new
   end
 
   def edit

@@ -1,1 +1,17 @@
 <h1>Top</h1>
+
+<h3>このサイトには<%= @count %>件の相談が投稿されています。</h3>
+
+
+<% @counselings.each do |counseling| %>
+  <h4>相談のジャンル</h4> 
+  <%= counseling.genre.genre %>
+  <h4>辛さのレベル</h4> 
+  <%= counseling.level %>
+  <h4>相談タイトル</h4> 
+  <%= link_to user_counseling_path(counseling) do %>
+   <%= counseling.title %>
+  <% end %>
+  <p><%= counseling.created_at.strftime("%Y-%m-%d %H:%M") %>に投稿</p>
+  <br>
+<% end %>

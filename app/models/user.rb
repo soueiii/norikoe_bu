@@ -8,5 +8,7 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
-  has_many :counselings
+  has_many :counselings, dependent: :destroy
+  has_many :answers, dependent: :destroy
+
 end

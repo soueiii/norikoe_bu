@@ -9,7 +9,20 @@
 <p><%= @counseling.content %></p>
 
 
-<% if @counseling.user.id == current_user.id %>
- <p><%= link_to "この相談を編集する", edit_user_counseling_path(@counseling) %></p>
- <p><%= link_to "この相談を削除する", user_counseling_path(@counseling),method: :delete, data: {confirm: "この相談を削除してもよろしいですか？"}  %></p>
+<p>コメント件数：<%= @counseling.answers.count %></p>
+<% @counseling.answers.each do |answer| %>
+  <p><%= answer.user.name %></p>
+  <p><%= answer.content %></p>
+  <% if answer.user == current_user %>
+   <div>
+    <%= link_to "削除", user_counseling_answer_path(answer.counseling_id, answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"} %>
+   </div>
+ <% end %>
 <% end %>
+</div>
+<div>
+<%= form_with(model:[@counseling, @answer],url:user_counseling_answers_path(@counseling), local: true) do |f| %>
+  <%= f.text_area :content, rows:'5',placeholder: "回答を記入して下さい" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
