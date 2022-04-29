@@ -13,6 +13,23 @@
 <% @counseling.answers.each do |answer| %>
   <p><%= answer.user.name %></p>
   <p><%= answer.content %></p>
+
+  <% if current_user.good_by?(answer.id) %>
+  <%= link_to 'いいねを外す', user_destroy_good_path(answer), method: :DELETE %>
+  <%= answer.goods.count %>個のいいねがついています!
+  <% else %>
+   <%= link_to 'この相談にいいねする', user_create_good_path(answer), method: :POST %>
+   <%= answer.goods.count %>個のいいねがついています!
+  <% end %>
+
+  <% if current_user.not_good_by?(answer.id) %>
+  <p><%= link_to 'いいねを外す', user_destroy_not_good_path(answer), method: :DELETE %>
+  <%= answer.not_goods.count %>個のよくないねがついています</p>
+  <% else %>
+   <p><%= link_to 'この相談よくないねする', user_create_not_good_path(answer), method: :POST %>
+   <%= answer.not_goods.count %>個のよくないねがついています</p>
+  <% end %>
+
   <% if answer.user == current_user %>
    <div>
     <%= link_to "削除", user_counseling_answer_path(answer.counseling_id, answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"} %>
@@ -20,9 +37,10 @@
  <% end %>
 <% end %>
 </div>
+
 <div>
 <%= form_with(model:[@counseling, @answer],url:user_counseling_answers_path(@counseling), local: true) do |f| %>
   <%= f.text_area :content, rows:'5',placeholder: "回答を記入して下さい" %>
   <%= f.submit "送信する" %>
 <% end %>
-</div>
+
