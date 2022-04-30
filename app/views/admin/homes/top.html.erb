@@ -1,1 +1,16 @@
 <h2>管理者トップページ</h2>
+<h4>会員一覧</h4>
+<%= @users.each do |user| %>
+ <%= user.id %>
+ <%= user.name %>
+ <%= user.club %>
+ <%= user.is_deleted %>
+<% end %>
+<h4>相談一覧</h4>
+<%= @counselings.each do |counseling| %>
+<%= counseling.id %>
+<%= counseling.title %>
+<h4>回答一覧</h4>
+<%= @answers.each do |answer| %>
+<%= answer.id %>
+<%= @answer.content %>

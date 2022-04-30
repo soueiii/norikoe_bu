@@ -40,6 +40,7 @@ class User::CounselingsController < ApplicationController
 
   def search
     @counseling = Counseling.all
+    @count = @search_counseling.count
   end
 
  private

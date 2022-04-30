@@ -12,3 +12,7 @@ Genre.create(genre: '部活以外のやりたいことがある')
 Genre.create(genre: '技術が上達しない')
 Genre.create(genre: 'その他')
 
+Admin.find_or_create_by(id: 1) do |admin|
+ admin.email = "shimada@gmail.com"
+ admin.password = "299314"
+end
