@@ -1,14 +1,18 @@
 <h1>Top</h1>
 
-<h3>このサイトには<%= @count %>件の相談が投稿されています。</h3>
 
+<h3>このサイトには<%= @cofunt %>件の相談が投稿されています。(上から新しい順番になっています。)</h3>
 
+このサイトは〜〜〜〜〜
+<%= link_to "相談する", new_user_counseling_path %>
+
+<h2>相談一覧</h2>
 <% @counselings.each do |counseling| %>
-  <h4>相談のジャンル</h4> 
+  <h4>相談のジャンル</h4>
   <%= counseling.genre.genre %>
-  <h4>辛さのレベル</h4> 
+  <h4>辛さのレベル</h4>
   <%= counseling.level %>
-  <h4>相談タイトル</h4> 
+  <h4>相談タイトル</h4>
   <%= link_to user_counseling_path(counseling) do %>
    <%= counseling.title %>
   <% end %>

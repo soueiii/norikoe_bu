@@ -1,6 +1,6 @@
 class User::CounselingsController < ApplicationController
 
-   before_action :authenticate_user!, except: [:index]
+   before_action :authenticate_user!, except: [:index,]
   def new
     @counseling = Counseling.new
     @genres = Genre.all
@@ -38,7 +38,11 @@ class User::CounselingsController < ApplicationController
     redirect_to user_customer_path(current_user)
   end
 
-   private
+  def search
+    @counseling = Counseling.all
+  end
+
+ private
 
   def counseling_params
     params.require(:counseling).permit(:user_id, :genre, :title, :content, :level)

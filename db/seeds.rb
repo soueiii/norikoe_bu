@@ -11,3 +11,4 @@ Genre.create(genre: '体罰などをされている')
 Genre.create(genre: '部活以外のやりたいことがある')
 Genre.create(genre: '技術が上達しない')
 Genre.create(genre: 'その他')
+
