@@ -20,5 +20,3 @@ class User::AnswersController < ApplicationController
   end
 
 end
-
-# 削除機能の作成からやっていく！！！！

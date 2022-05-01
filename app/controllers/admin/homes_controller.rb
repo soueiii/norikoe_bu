@@ -1,8 +1,10 @@
 class Admin::HomesController < ApplicationController
-  
- def index  
-  @user = User.all
+
+ def top
+  @users = User.all
   @counselings = Counseling.all
   @answers = Answer.all
  end
+ 
+ 
 end

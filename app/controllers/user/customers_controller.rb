@@ -24,7 +24,7 @@ class User::CustomersController < ApplicationController
     @user.update(is_deleted: true)
     reset_session
     flash[:notic] = 'またお悩みがあればいつでもお待ちしております。ご利用ありがとうございました。'
-    redirect_to user_root_path
+    redirect_to root_path
   end
 
   private

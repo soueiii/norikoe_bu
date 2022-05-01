@@ -1,0 +1,8 @@
+<h3><%= @user.name %>さんの会員詳細</h3>
+ <p><%= @user.id %></p>
+ <p><%= @user.email %></p>
+ <p><%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"120x120" %></p>
+ <p><%= @user.club %></p>
+ <p><%= @user.self_introduction %></p>
+ <p><td><%= @user.is_deleted ? '退会中':'有効中' %></p>
+<%= link_to "退会させる", admin_user_path, method: :patch, data: {confirm: "本当にこの会員を退会させてよろしいですか？"} %>

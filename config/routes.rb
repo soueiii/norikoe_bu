@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'counselings/show'
+    get 'counselings/update'
+  end
   devise_for :users,skip: [:passwords,], controllers: {
    registrations: "user/registrations",
    sessions: 'user/sessions'
@@ -11,6 +15,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
    root to: 'homes#top'
+   resources :answers, only: [:show, :destroy]
+   resources :users, only: [:show, :update]
+   resources :counselings, only: [:show, :destroy]
   end
 
   namespace :user do

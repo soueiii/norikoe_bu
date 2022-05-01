@@ -1,0 +1,8 @@
+相談詳細
+<%= @counseling.user.name%>さんの相談
+<%= @counseling.genre.genre %>
+<%= @counseling.title %>
+<%= @counseling.content %>
+<%= @counseling.level %>
+<%= link_to "この相談を削除する", admin_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？(この相談に送られている回答も削除されます)"} %>
+<%= @counseling.answers.count %>件の回答がきています</p>

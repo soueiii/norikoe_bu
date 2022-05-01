@@ -1,0 +1,7 @@
+回答詳細
+<%= @answer.user.name %>さんの回答
+ <%= @answer.counseling.title %>への回答
+<%= @answer.content %>
+<%= link_to "この回答を削除する", admin_answer_path(@answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"} %>
+<%= @answer.goods.count %>個のいいねがついています</p>
+<%= @answer.not_goods.count %>個のよくないねがついています</p>
