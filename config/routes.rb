@@ -35,4 +35,6 @@ Rails.application.routes.draw do
    delete 'not_good/:id' => 'not_goods#destroy', as: 'destroy_not_good'
   end
   root to: 'user/homes#index'
+  resources :contacts, only: [:new, :create]
+  get 'contacts/thanks' => 'contacts#thanks',as: 'thanks'
 end

@@ -44,5 +44,6 @@
 - [ぱくたそ](https://www.pakutaso.com/)
 - [storyset](https://storyset.com/)
 - [unsplash](https://unsplash.com/)
+- [ロゴ作成](https://www.777logos.com/logo/#first)
 #### フォント素材
 - [Font Free](https://fontfree.me/)

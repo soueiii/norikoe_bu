@@ -69,3 +69,6 @@ group :development, :test do
   gem 'pry-rails'
 end
 gem 'ransack'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'

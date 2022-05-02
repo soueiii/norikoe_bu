@@ -1,0 +1,9 @@
+<h4>お問合せフォーム</h4>
+
+<%= form_with model: @contact do |f| %>
+ <%= f.label :お名前 %>
+ <%= f.text_field :name %>
+ <%= f.label :お問合せ内容%>
+ <%= f.text_area:message %>
+ <%= f.submit 'お問合せを送信する' %>
+<% end %>

@@ -9,24 +9,73 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= search_form_for @search,url: user_counselings_search_path do |f| %>
-   <%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
+  <% if admin_signed_in? %>
+<div class= "container">
+ <div class= "row mt-5">
+  <div class= "col-md-2 offset-4 ">
+   <%= image_tag 'logo.jpeg' %>
+  </div>
+  <div class= "col-md-6 text-center">
+   <%= search_form_for @search,url: user_counselings_search_path do |f| %>
+   <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
    <%= f.submit ("検索") %>
+  </div>
+  <div class= "col-10 offset-1 mt-3">
+ <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete,class: "btn btn-outline-success" %>
+  </div>
+  </div>
+ </div>
   <% end %>
 
-  <% if admin_signed_in? %>
-   <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete,class: "btn btn-outline-dark" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <% elsif user_signed_in? %>
-   <%= current_user.name %>さんがログイン中
-   <%= link_to "トップページ（相談一覧）",root_path %>
-   <%= link_to "管理者の体験談へ",user_admins_path %>
-   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-   <%= link_to "マイページヘ",user_customer_path(current_user) %>
-   <%= link_to "相談する",new_user_counseling_path %>
+<div class= "container">
+ <div class= "row mt-5">
+  <div class= "col-md-2 offset-4 ">
+   <%= image_tag 'logo.jpeg' %>
+  </div>
+  <div class= "col-md-6 text-center">
+   <%= search_form_for @search,url: user_counselings_search_path do |f| %>
+   <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
+   <%= f.submit ("検索") %>
+      <%= current_user.name %>さんがログイン中
+  </div>
+
+  <div class= "col-10 offset-1 mt-3">
+   <%= link_to "トップページ",root_path , class:"btn btn-success mr-3"%>
+   <%= link_to "管理者の体験談",user_admins_path , class:"btn btn-success mr-3"%>
+   <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class:"btn btn-success mr-3" %>
+   <%= link_to "マイページ",user_customer_path(current_user) , class:"btn btn-success mr-3"%>
+   <%= link_to "相談する",new_user_counseling_path , class:"btn btn-success mr-3"%>
+   <%= link_to "お問合せ", new_contact_path , class:"btn btn-success mr-3"%>
+  </div>
+  </div>
+ </div>
+  <% end %>
+
+
   <% else %>
-   <%= link_to "管理者の体験談へ",user_admins_path %>
-   <%= link_to "トップページ（相談一覧）",root_path %>
-   <%= link_to "ログイン", user_session_path %>すると相談ができます
+  <div class= "container">
+ <div class= "row mt-5">
+  <div class= "col-md-2 offset-4 ">
+   <%= image_tag 'logo.jpeg' %>
+  </div>
+  <div class= "col-md-6 text-center">
+   <%= search_form_for @search,url: user_counselings_search_path do |f| %>
+   <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
+   <%= f.submit ("検索") %>
+  </div>
+
+  <div class= "col-10 offset-1 mt-3">
+   <%= link_to "トップページ",root_path , class:"btn btn-success mr-3"%>
+   <%= link_to "管理者の体験談",user_admins_path , class:"btn btn-success mr-3"%>
+   <%= link_to "新規登録", new_user_registration_path, method: :delete , class:"btn btn-success mr-3" %>
+   <%= link_to "ログイン", user_session_path , class:"btn btn-success mr-3"%>
+   <%= link_to "お問合せ", new_contact_path , class:"btn btn-success mr-3"%>
+  </div>
+  </div>
+ </div>
+  <% end %>
+
   <% end %>
   <body>
     <%= yield %>
