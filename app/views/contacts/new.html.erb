@@ -1,11 +1,13 @@
 <div class="text-center">
-<div class="title mt-3">お問合せフォーム</div><br>
-
+<div class="title mt-3">お問合せフォーム</div>
+<div class="email">
+  ※返信はご登録いただいているメールアドレスに返信させていただきます。
+</div><br>
 <%= form_with model: @contact do |f| %>
  <%= f.label :お名前 %><br>
- <%= f.text_field :name %><br>
+ <p><%= f.text_field :name %></p>
  <%= f.label :お問合せ内容%><br>
- <%= f.text_area:message %><br>
- <%= f.submit 'お問合せを送信する' %>
+ <p><%= f.text_area:message %></p>
+ <p><%= f.submit 'お問合せを送信する', class:"btn btn-success" %></p>
 <% end %>
 </div>
