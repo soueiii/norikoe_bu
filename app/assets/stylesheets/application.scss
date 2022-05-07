@@ -18,3 +18,77 @@
 @import 'font-awesome';
 
 
+// .
+body {
+  background-color: #9fca99;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+html {
+  font-size: 16px;
+}
+
+.tennis {
+  position: absolute;
+  top: 1100px;
+  right: 45px;
+}
+
+.baseball {
+    position: absolute;
+    top: 270px;
+    right: 45px;
+}
+
+.basketball {
+    position: absolute;
+    top: 250px;
+    left: 45px;
+}
+
+.football {
+    position: absolute;
+    top: 700px;
+    left: 45px;
+}
+
+.run {
+    position: absolute;
+    top: 1100px;
+    left: 45px;
+}
+
+.tabletennis {
+    position: absolute;
+    top: 700px;
+    right: 45px;
+}
+
+.text{
+  font-family: serif;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.title {
+ font-weight: bold;
+ font-size: 30px;
+}
+
+.count {
+  font-size: 20px;
+}
+
+.counseling {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.login {
+  font-weight: bold;
+}
