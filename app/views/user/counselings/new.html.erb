@@ -1,4 +1,16 @@
+<div class="text-center">
 <h1>相談を投稿する</h1>
+<% if @counseling.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% @counseling.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="text-center">
 <%= form_with model:@counseling, url: user_counselings_path,local:true do |f| %>
 
   <%= f.label :title,"相談タイトル" %>
@@ -15,3 +27,5 @@
 
   <%= f.submit'相談を投稿する' %>
 <% end %>
+</div>
+</div>

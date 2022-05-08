@@ -3,4 +3,5 @@ class Answer < ApplicationRecord
   belongs_to :counseling
   has_many :goods, dependent: :destroy
   has_many :not_goods, dependent: :destroy
+  validates :content, presence: true
 end

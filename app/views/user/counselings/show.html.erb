@@ -1,3 +1,13 @@
+<div class="text-center">
+ <% if @answer.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= flash[:notic] %>
 <h4>相談ジャンル</h4>
 <p><%= @counseling.genre.genre %></p>
@@ -37,7 +47,7 @@
  <% end %>
 <% end %>
 </div>
-
+<div class="text-center">
 <% if @counseling.user == current_user %>
    <div>
     <%= link_to "この相談を削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"} %>
@@ -50,3 +60,6 @@
   <%= f.submit "送信する" %>
 <% end %>
 
+</div>
+</div>
+<iv>

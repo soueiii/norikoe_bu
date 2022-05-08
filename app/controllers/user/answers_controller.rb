@@ -1,12 +1,15 @@
 class User::AnswersController < ApplicationController
 
   def create
-   counseling = Counseling.find(params[:counseling_id])
-   answer = current_user.answers.new(answer_params)
-   answer.counseling_id = counseling.id
-   answer.save
-   redirect_to user_counseling_path(answer.counseling.id)
+   @counseling = Counseling.find(params[:counseling_id])
+   @answer = current_user.answers.new(answer_params)
+   @answer.counseling_id = @counseling.id
+   if @answer.save
+   redirect_to user_counseling_path(@answer.counseling.id)
+   else
+   render "user/counselings/show"
   end
+ end
 
   def destroy
    Answer.find_by(id:params[:id]).destroy

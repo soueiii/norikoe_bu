@@ -28,6 +28,8 @@
   </div>
 
   <div class= "text-center mt-5">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 	  <%= image_tag 'logo.jpeg', size: '130x100' %>
 	   <p><%= search_form_for @search,url: user_counselings_search_path do |f| %>
    <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
@@ -68,7 +70,6 @@
      <%= link_to "管理者の体験談",user_admins_path , class:"btn btn-success mr-3"%>
      <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success mr-3" %>
      <%= link_to "ログイン", user_session_path , class:"btn btn-success mr-3"%>
-     <%= link_to "お問合せ", new_contact_path , class:"btn btn-success mr-3"%>
     </div>
    </div>
   </div>

@@ -1,6 +1,7 @@
 class User::CounselingsController < ApplicationController
 
    before_action :authenticate_user!, except: [:index,]
+
   def new
     @counseling = Counseling.new
     @genres = Genre.all
@@ -8,11 +9,15 @@ class User::CounselingsController < ApplicationController
 
   def create
     @counseling = Counseling.new(counseling_params)
+    @genres = Genre.all
     @counseling.genre_id = params[:genre][:name]
     @counseling.user_id = current_user.id
-    @counseling.save
+    if @counseling.save
     flash[:notic] = '投稿に成功しました！回答が来るのを待ちましょう。'
     redirect_to user_counseling_path(@counseling)
+    else
+    render 'user/counselings/new.html.erb'
+  end
   end
 
   def show
