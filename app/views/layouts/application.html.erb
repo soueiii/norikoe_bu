@@ -9,28 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
    <div class="tennis">
-    <%= image_tag 'tennis.jpeg', size: '250x250' %>
+    <%= image_tag 'tennis.jpg', size: '250x250' %>
    </div>
    <div class="baseball">
-   <%= image_tag 'baseball.jpeg', size: '250x250'%>
+   <%= image_tag 'baseball.jpg', size: '250x250'%>
   </div>
    <div class="basketball">
-   <%= image_tag 'basketball.jpeg', size: '250x250'%>
+   <%= image_tag 'basketball.jpg', size: '250x250'%>
   </div>
    <div class="football">
-   <%= image_tag 'football.jpeg', size: '250x250'%>
+   <%= image_tag 'football.jpg', size: '250x250'%>
   </div>
    <div class="run">
-   <%= image_tag 'run.jpeg', size: '250x250'%>
+   <%= image_tag 'run.jpg', size: '250x250'%>
   </div>
    <div class="tabletennis">
-   <%= image_tag 'tabletennis.jpeg', size: '230x230'%>
+   <%= image_tag 'tabletennis.jpg', size: '230x230'%>
   </div>
 
   <div class= "text-center mt-5">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-	  <%= image_tag 'logo.jpeg', size: '130x100' %>
+	  <%= image_tag 'logo.jpg', size: '130x100' %>
 	   <p><%= search_form_for @search,url: user_counselings_search_path do |f| %>
    <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
    <%= f.submit ("検索") ,class:"btn btn-success ml-3"%>

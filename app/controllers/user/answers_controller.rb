@@ -1,4 +1,5 @@
 class User::AnswersController < ApplicationController
+  
 
   def create
    @counseling = Counseling.find(params[:counseling_id])

@@ -1,5 +1,8 @@
 class Admin::AnswersController < ApplicationController
 
+  before_action :authenticate_admin!
+
+
   def show
     @answer = Answer.find(params[:id])
   end

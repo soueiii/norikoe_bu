@@ -1,4 +1,7 @@
 class User::CustomersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user,only: [:show, :edit, :confirm]
+
 
   def show
     @user = User.find(params[:id])
@@ -31,5 +34,12 @@ class User::CustomersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :image, :self_introduction, :club, :email,)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to root_path
+    end
   end
 end
