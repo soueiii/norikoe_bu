@@ -1,3 +1,15 @@
-<h2>本当に退会しますか？</h2>
-<%= link_to "退会する",user_unsubscribe_path(current_user), method: :patch %>
-<%= link_to "マイページに戻る",user_customer_path(current_user) %>
+<div class="text-center">
+ <p><div class="title mt-5">本当に退会しますか？</div></p>
+ <%= link_to "退会する",user_unsubscribe_path(current_user), method: :patch ,class:"btn btn-danger" %>
+ <%= link_to "マイページに戻る",user_customer_path(current_user) ,class:"btn btn-success" %><br>
+<div class="container">
+  <div class="row">
+   <div class="col-md-6 offset-4">
+ <div class="text"><br>
+   <p>再度ご利用していただく場合は改めて新規登録が必要になります。</p>
+   <p>またもし心が辛くなった時はいつでも戻ってきてください。</p>
+   <p>ご利用ありがとうございました。</p>
+   </div>
+   </div>
+ </div>
+</div>

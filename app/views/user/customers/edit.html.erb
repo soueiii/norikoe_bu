@@ -1,28 +1,34 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@user,url:user_customer_path, local:true do |f| %>
-<div class="field">
-    <%= f.label :image, "プロフィール写真" %>
+<div class="text-center">
+ <div class="title mt-3">
+  プロフィール編集
+ </div>
+ <%= form_with model:@user,url:user_customer_path, local:true do |f| %>
+ <div class="field mt-3">
+    <%= f.label :image, "プロフィール写真" %><br>
     <%= f.attachment_field :image, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :name, "名前（ニックネーム可）" %>
+  <div class="field mt-3">
+    <%= f.label :name, "名前（ニックネーム可）" %><br>
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :club, "部活" %>
+  <div class="field mt-3">
+    <%= f.label :club, "部活" %><br>
     <%= f.text_field :club, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :self_introduction, "自己紹介" %>
-    <%= f.text_area :self_introduction, autofocus: true , :size=>"30x3" %>
+  <div class="field mt-3">
+    <%= f.label :self_introduction, "自己紹介" %><br>
+    <%= f.text_area :self_introduction, autofocus: true , :size=>"30x5" %>
   </div>
 
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>  <%= f.submit "変更を保存" %>
+  <div class="field mt-3">
+    <%= f.label :email, "メールアドレス" %><br>
+    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
+  </div>
+  <%= f.submit "変更する",class:"btn btn-success" %>
 <% end %>
+
+</div>

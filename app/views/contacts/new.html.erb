@@ -5,9 +5,9 @@
 </div><br>
 <%= form_with model: @contact do |f| %>
  <%= f.label :お名前 %><br>
- <p><%= f.text_field :name %></p>
+ <p><%= f.text_field :name, size: "40x10" %></p>
  <%= f.label :お問合せ内容%><br>
- <p><%= f.text_area:message %></p>
+ <p><%= f.text_area:message, size: "40x10" %></p>
  <p><%= f.submit 'お問合せを送信する', class:"btn btn-success" %></p>
 <% end %>
 </div>
