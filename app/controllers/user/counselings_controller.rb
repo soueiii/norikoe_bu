@@ -1,8 +1,6 @@
 class User::CounselingsController < ApplicationController
-
-   before_action :authenticate_user!, except: [:index,]
-   before_action :correct_counseling,only: [:edit]
-
+  before_action :authenticate_user!, except: [:index]
+  before_action :correct_counseling, only: [:edit]
 
   def new
     @counseling = Counseling.new
@@ -15,11 +13,11 @@ class User::CounselingsController < ApplicationController
     @counseling.genre_id = params[:genre][:name]
     @counseling.user_id = current_user.id
     if @counseling.save
-    flash[:notic] = '投稿に成功しました！回答が来るのを待ちましょう。'
-    redirect_to user_counseling_path(@counseling)
+      flash[:notic] = '投稿に成功しました！回答が来るのを待ちましょう。'
+      redirect_to user_counseling_path(@counseling)
     else
-    render 'user/counselings/new.html.erb'
-  end
+      render 'user/counselings/new.html.erb'
+    end
   end
 
   def show
@@ -50,7 +48,7 @@ class User::CounselingsController < ApplicationController
     @count = @search_counseling.count
   end
 
- private
+  private
 
   def counseling_params
     params.require(:counseling).permit(:user_id, :genre, :title, :content, :level)
@@ -58,8 +56,6 @@ class User::CounselingsController < ApplicationController
 
   def correct_counseling
     @counseling = Counseling.find(params[:id])
-    unless @counseling.user.id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless @counseling.user.id == current_user.id
   end
 end

@@ -1,25 +1,25 @@
 <div class="container">
  <div class="row">
   <div class="col-md-10 offset-1">
-<div class="text-center">
- <div class="title mt-3">
-  <%= @count %>件の相談が見つかりました!
- </div>
- <% @search_counseling.each do |counseling| %>
- <table class= table mt-3 style="table-layout:fixed;width:100%;">
-  <thead>
-  <tr class="border-bottom" style="word-wrap:break-word;">
-   <th scope=col style"#width:33%;">
-  <%= link_to user_counseling_path(counseling) do %>
-   <p><%= counseling.title %></p>
-  <% end %>
-   相談のジャンル&nbsp;
-   <%= counseling.genre.genre %>
-  </th>
-    </tr>
+   <div class="text-center">
+    <div class="title mt-3">
+     <%= @count %>件の相談が見つかりました!
+    </div>
+    <% @search_counseling.each do |counseling| %>
+     <table class= table mt-3 style="table-layout:fixed;width:100%;">
+      <thead>
+       <tr class="border-bottom" style="word-wrap:break-word;">
+        <th scope=col style"#width:33%;">
+        <%= link_to user_counseling_path(counseling) do %>
+        <p><%= counseling.title %></p>
+       <% end %>
+      相談のジャンル&nbsp;
+       <%= counseling.genre.genre %>
+       </th>
+      </tr>
      </thead>
-     <% end %>
- </table>
-</div>
-</div>
+    <% end %>
+   </table>
+  </div>
+ </div>
 </div>

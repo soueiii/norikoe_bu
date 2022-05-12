@@ -1,7 +1,7 @@
 <div class="text-center">
-<div class="title mt-3">相談を投稿する</div>
- <% if @counseling.errors.any? %>
-  <div class = "alert">
+ <div class="title mt-3">相談を投稿する</div>
+  <% if @counseling.errors.any? %>
+   <div class = "alert">
     <ul>
       <% @counseling.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -9,23 +9,21 @@
     </ul>
   </div>
  <% end %>
-
 <div class="text-center">
 <%= form_with model:@counseling, url: user_counselings_path,local:true do |f| %>
+   <%= f.label :title,"相談タイトル" %><br>
+   <p><%= f.text_field :title %></p>
 
-  <%= f.label :title,"相談タイトル" %><br>
-  <p><%= f.text_field :title %></p>
+   相談のジャンル<br>
+   <p><%= collection_select(:genre, :name, @genres, :id, :genre) %></p>
 
-  相談のジャンル<br>
-  <p><%= collection_select(:genre, :name, @genres, :id, :genre) %></p>
+   <%= f.label :level,"辛さのレベル" %>(1~5で選択して下さい。)<br>
+   <p><%= f.number_field :level, in: 1..5 %></p>
 
-  <%= f.label :level,"辛さのレベル" %>(1~5で選択して下さい。)<br>
-  <p><%= f.number_field :level, in: 1..5 %></p>
+   <%= f.label :content,"相談内容" %><br>
+   <p><%= f.text_area :content, size: "40x10"%></p>
 
-  <%= f.label :content,"相談内容" %><br>
-  <p><%= f.text_area :content, size: "40x10"%></p>
-
-  <p><%= f.submit'相談を投稿する',class:"btn btn-success" %></p>
-<% end %>
-</div>
+   <p><%= f.submit'相談を投稿する',class:"btn btn-success" %></p>
+  <% end %>
+ </div>
 </div>

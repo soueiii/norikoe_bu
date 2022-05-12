@@ -68,14 +68,14 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'pry-rails'
 end
-gem 'ransack'
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'kaminari'
-gem 'dotenv-rails'
 gem 'devise-i18n'
+gem 'dotenv-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'jquery-rails'
+gem 'kaminari'
 gem 'rails-i18n'
+gem 'ransack'
 group :production do
   gem 'mysql2'
 end

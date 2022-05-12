@@ -1,25 +1,25 @@
 <div class="container">
  <div class="row">
   <div class="col-md-10 offset-1">
-  <div class="title mt-5">管理者TOP（会員一覧）</div>
-  <% @users.each do |user| %>
-  <table class=table style="table-layout:fixed;width:90%;">
-   <thead>
-    <tr class="boder-bottm" style="word-wrap:break-word;">
-     <th scope=col style"#width;¥:33%;">
-      <p><%= user.id %></p>
-      <p><%= user.name%></p>
-      <p><%= user.club %></p>
-      <p><%= user.email %></p>
-      <p><%= user.self_introduction %></p>
-      <p><%= link_to "退会させる", admin_user_path(user), method: :patch, data: {confirm: "本当にこの会員を退会させてよろしいですか？"}, class:"btn btn-danger" %>&nbsp;
+   <div class="title mt-5">管理者TOP（会員一覧）</div>
+   <% @users.each do |user| %>
+   <table class=table style="table-layout:fixed;width:90%;">
+    <thead>
+     <tr class="boder-bottm" style="word-wrap:break-word;">
+      <th scope=col style"#width;¥:33%;">
+       <p><%= user.id %></p>
+       <p><%= user.name%></p>
+       <p><%= user.club %></p>
+       <p><%= user.email %></p>
+       <p><%= user.self_introduction %></p>
+       <p><%= link_to "退会させる", admin_user_path(user), method: :patch, data: {confirm: "本当にこの会員を退会させてよろしいですか？"}, class:"btn btn-danger" %>&nbsp;
          <%= link_to "相談,回答一覧へ", admin_user_path(user),class:"btn btn-success" %>&nbsp;
-      <p><%= user.is_deleted ? '退会中':'有効中' %></p>
+       <p><%= user.is_deleted ? '退会中':'有効中' %></p>
       </th>
     </tr>
    </thead>
- </table>
- <% end %>
+  </table>
+  <% end %>
+  </div>
  </div>
- </div>
- </div>
+</div>

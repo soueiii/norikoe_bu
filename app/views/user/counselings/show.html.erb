@@ -15,85 +15,80 @@
   <div class="title" style="word-wrap:break-word;">
    <div scope=col style"#width:33%;">
     <%= @counseling.title %>
+    </div>
    </div>
-  </div>
-</div>
-</div>
-<div class="col-md-2 offset-2 ">
-     <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"200x200" %><br>
-
-</div>
-<div class="col-md-2 mt-3">
- <h5>相談者</h5>
- <h5>部活</h5>
- <h5>辛さレベル(1~5)</h5>
- <h5>ジャンル</h5>
- <h5>自己紹介</h5>
-
-</div>
-<div class="col-md-4 mt-3">
-<h5><%= @counseling.user.name %></h5>
-<h5><%= @counseling.user.club %></h5>
-<h5><%= @counseling.level %></h5>
-<h5><%= @counseling.genre.genre %></h5>
-<div class="text" style="word-wrap:break-word;">
- <h5><%= @counseling.user.self_introduction %></h5>
-</div >
-</div><br>
-<div class="col-md-10 offset-2">
-<h5>相談内容</h5>
-<div class="text" style="word-wrap:break-word;"><h5><%= @counseling.content %></h5></div>
-
-<% if @counseling.user == current_user %>
-   <div>
-    <%= link_to "削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"},class:"btn btn-danger" %>
-    <%= link_to "編集する", edit_user_counseling_path(@counseling),class:"btn btn-success" %><br><br>
-   </div>
- <% end %>
- <div class="border-bottom">
-<%= form_with(model:[@counseling, @answer],url:user_counseling_answers_path(@counseling), local: true) do |f| %>
-  <p><%= f.text_area :content, rows:'5',placeholder: "この相談に回答する", size: "80x3" %></p>
-  <%= f.submit "送信する",class:"btn btn-success" %>
-  <p>(回答によくないねが5個以上つくと削除される場合があります。)</p>
-<% end %>
-     <h4 class="mt-2">合計<%= @counseling.answers.count %>件の回答が届いています。</h4>
-
-</div>
-
-    <% @counseling.answers.each do |answer| %>
- <table class= table style="table-layout:fixed;width:100%;">
-  <thead>
-  <tr class="border-bottom" style="word-wrap:break-word;">
-   <th scope=col style"#width:33%;">
-    <p class="text mt-2"><%= answer.content %></p>
-     <% if current_user.good_by?(answer.id) %>
-      <%= link_to 'いいねを外す', user_destroy_good_path(answer), method: :DELETE %>
-      <%= answer.goods.count %>個のいいねがついています!
-     <% else %>
-      <%= link_to '回答にいいねする', user_create_good_path(answer), method: :POST %>
-      <%= answer.goods.count %>個のいいねがついています!
-     <% end %>
-     <% if current_user.not_good_by?(answer.id) %>
-      <p><%= link_to 'よくないねを外す', user_destroy_not_good_path(answer), method: :DELETE %>
-      <%= answer.not_goods.count %>個のよくないねがついています</p>
-      <% else %>
-      <p><%= link_to '回答によくないねする', user_create_not_good_path(answer), method: :POST %>
-         <%= answer.not_goods.count %>個のよくないねがついています</p>
-      <% end %>
-  <% if answer.user == current_user %>
-   <div>
-    <%= link_to "削除", user_counseling_answer_path(answer.counseling_id, answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"},class:"btn btn-danger" %>
-   </div>
-
- <% end %>
-</th>
-    </tr>
-     </thead>
-     <% end %>
- </table>
-
-</div>
   </div>
  </div>
+<div class="col-md-2 offset-2 ">
+ <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"200x200" %><br>
+</div>
+ <div class="col-md-2 mt-3">
+  <h5>相談者</h5>
+  <h5>部活</h5>
+  <h5>辛さレベル(1~5)</h5>
+  <h5>ジャンル</h5>
+  <h5>自己紹介</h5>
+ </div>
+ <div class="col-md-4 mt-3">
+  <h5><%= @counseling.user.name %></h5>
+  <h5><%= @counseling.user.club %></h5>
+  <h5><%= @counseling.level %></h5>
+  <h5><%= @counseling.genre.genre %></h5>
+ <div class="text" style="word-wrap:break-word;">
+  <h5><%= @counseling.user.self_introduction %></h5>
+ </div>
+ </div>
+  <br>
+ <div class="col-md-10 offset-2">
+   <h5>相談内容</h5>
+     <div class="text" style="word-wrap:break-word;"><h5><%= @counseling.content %></h5></div>
+     
+     <% if @counseling.user == current_user %>
+        <div>
+         <%= link_to "削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"},class:"btn btn-danger" %>
+         <%= link_to "編集する", edit_user_counseling_path(@counseling),class:"btn btn-success" %><br><br>
+        </div>
+      <% end %>
+      <div class="border-bottom">
+     <%= form_with(model:[@counseling, @answer],url:user_counseling_answers_path(@counseling), local: true) do |f| %>
+       <p><%= f.text_area :content, rows:'5',placeholder: "この相談に回答する", size: "80x3" %></p>
+       <%= f.submit "送信する",class:"btn btn-success" %>
+       <p>(回答によくないねが5個以上つくと削除される場合があります。)</p>
+     <% end %>
+     <h4 class="mt-2">合計<%= @counseling.answers.count %>件の回答が届いています。</h4>
+     </div>
+     <% @counseling.answers.each do |answer| %>
+      <table class= table style="table-layout:fixed;width:100%;">
+       <thead>
+       <tr class="border-bottom" style="word-wrap:break-word;">
+        <th scope=col style"#width:33%;">
+         <p class="text mt-2"><%= answer.content %></p>
+          <% if current_user.good_by?(answer.id) %>
+           <%= link_to 'いいねを外す', user_destroy_good_path(answer), method: :DELETE %>
+           <%= answer.goods.count %>個のいいねがついています!
+          <% else %>
+           <%= link_to '回答にいいねする', user_create_good_path(answer), method: :POST %>
+           <%= answer.goods.count %>個のいいねがついています!
+          <% end %>
+          <% if current_user.not_good_by?(answer.id) %>
+           <p><%= link_to 'よくないねを外す', user_destroy_not_good_path(answer), method: :DELETE %>
+           <%= answer.not_goods.count %>個のよくないねがついています</p>
+          <% else %>
+           <p><%= link_to '回答によくないねする', user_create_not_good_path(answer), method: :POST %>
+           <%= answer.not_goods.count %>個のよくないねがついています</p>
+          <% end %>
+          <% if answer.user == current_user %>
+         <div>
+          <%= link_to "削除", user_counseling_answer_path(answer.counseling_id, answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"},class:"btn btn-danger" %>
+         </div>
+        <% end %>
+       </th>
+      </tr>
+     </thead>
+    <% end %>
+   </table>
+  </div>
+ </div>
+</div>
 
 

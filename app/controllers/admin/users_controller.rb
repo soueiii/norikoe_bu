@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     @counselings = @user.counselings.reverse_order
@@ -12,5 +11,4 @@ class Admin::UsersController < ApplicationController
     reset_session
     redirect_to admin_root_path
   end
-
 end
