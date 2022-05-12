@@ -20,18 +20,29 @@
 </div>
 </div>
 <div class="col-md-2 offset-2 ">
- <h5 >部活</h5>
- <h5>辛さレベル(1~5)</h5>
- <h5>ジャンル<br><br></h5>
+     <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"200x200" %><br>
+
 </div>
-<div class="col-md-4">
+<div class="col-md-2 mt-3">
+ <h5>相談者</h5>
+ <h5>部活</h5>
+ <h5>辛さレベル(1~5)</h5>
+ <h5>ジャンル</h5>
+ <h5>自己紹介</h5>
+
+</div>
+<div class="col-md-4 mt-3">
+<h5><%= @counseling.user.name %></h5>
 <h5><%= @counseling.user.club %></h5>
 <h5><%= @counseling.level %></h5>
 <h5><%= @counseling.genre.genre %></h5>
+<div class="text" style="word-wrap:break-word;">
+ <h5><%= @counseling.user.self_introduction %></h5>
+</div >
 </div><br>
 <div class="col-md-10 offset-2">
 <h5>相談内容</h5>
-<div class="text"><h5><%= @counseling.content %></h5></div>
+<div class="text" style="word-wrap:break-word;"><h5><%= @counseling.content %></h5></div>
 
 <% if @counseling.user == current_user %>
    <div>

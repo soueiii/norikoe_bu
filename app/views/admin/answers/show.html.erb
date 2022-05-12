@@ -1,7 +1,20 @@
-回答詳細
-<%= @answer.user.name %>さんの回答
- <%= @answer.counseling.title %>への回答
-<%= @answer.content %>
-<%= link_to "この回答を削除する", admin_answer_path(@answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"} %>
-<%= @answer.goods.count %>個のいいねがついています</p>
-<%= @answer.not_goods.count %>個のよくないねがついています</p>
+<div class="container">
+ <div class="row">
+  <div class="col-md-10 offset-1">
+<div class="title mt-5"><%= @answer.user.name %>さんの回答</div>
+  <table class=table style="table-layout:fixed;width:90%;">
+   <thead>
+    <tr class="boder-bottm" style="word-wrap:break-word;">
+     <th scope=col style"#width;¥:33%;">
+      <p>相談内容 <%= @answer.counseling.title %>への回答</p>
+      <p><%= @answer.content %></p>
+      <p><%= @answer.goods.count %>個のいいね</p>
+      <p><%= @answer.not_goods.count %>個のよくないね</p>
+      <%= link_to "この回答を削除する", admin_answer_path(@answer), method: :delete, data: {confirm: "回答を削除してよろしいですか？"},class:"btn btn-danger" %>
+      </th>
+    </tr>
+   </thead>
+ </table>
+ </div>
+ </div>
+ </div>

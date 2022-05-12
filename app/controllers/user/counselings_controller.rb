@@ -55,11 +55,11 @@ class User::CounselingsController < ApplicationController
   def counseling_params
     params.require(:counseling).permit(:user_id, :genre, :title, :content, :level)
   end
-  
+
   def correct_counseling
     @counseling = Counseling.find(params[:id])
     unless @counseling.user.id == current_user.id
-      redirect_to root_path  
+      redirect_to root_path
     end
   end
 end

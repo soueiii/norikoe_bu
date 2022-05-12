@@ -1,7 +1,7 @@
 class Admin::CounselingsController < ApplicationController
-  
+
   before_action :authenticate_admin!
-  
+
   def show
     @counseling = Counseling.find(params[:id])
   end

@@ -101,3 +101,26 @@ html {
 ul {
   list-style-type: none;
 }
+
+.admin img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.prof {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.experiences {
+  display: flex;
+  justify-content: space-between;
+}
+
+.proftitle {
+ font-weight: bold;
+ font-size: 25px;
+ overflow-wrap: normal;
+}

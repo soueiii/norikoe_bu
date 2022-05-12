@@ -1,8 +1,37 @@
-<h3><%= @user.name %>さんの会員詳細</h3>
- <p><%= @user.id %></p>
- <p><%= @user.email %></p>
- <p><%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"120x120" %></p>
- <p><%= @user.club %></p>
- <p><%= @user.self_introduction %></p>
- <p><td><%= @user.is_deleted ? '退会中':'有効中' %></p>
-<%= link_to "退会させる", admin_user_path, method: :patch, data: {confirm: "本当にこの会員を退会させてよろしいですか？"} %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-5 offset-1">
+  <div class="title mt-5" style="word-wrap:break-word;"><%= @user.name %>さんの相談一覧</div>
+  <% @counselings.each do |counsering| %>
+  <table class=table style="table-layout:fixed;width:90%;">
+   <thead>
+    <tr class="boder-bottm" style="word-wrap:break-word;">
+     <th scope=col style"#width;¥:33%;">
+      <%= counsering.title %><br>
+      <%= link_to "詳細",admin_counseling_path(@counselings), class:"btn btn-success" %>
+    </tr>
+   </thead>
+ </table>
+ <% end %>
+ </div>
+
+  <div class="col-md-5">
+  <div class="title mt-5" style="word-wrap:break-word;">  <%= @user.name %>さんの回答一覧</div>
+  <% @answers.each do |answer| %>
+  <table class=table style="table-layout:fixed;width:90%;">
+   <thead>
+    <tr class="boder-bottm" style="word-wrap:break-word;">
+     <th scope=col style"#width;¥:33%;">
+     <%= answer.content %>
+    </div>
+    <div class="col-md-">
+     <%= link_to "詳細",admin_answer_path(answer),class:"btn btn-success" %>
+     </th>
+   </tr>
+   </thead>
+ </table>
+      <% end %>
+
+ </div>
+ </div>
+ </div>
