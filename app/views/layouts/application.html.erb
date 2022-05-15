@@ -32,7 +32,7 @@
   <p class="alert"><%= alert %></p>
 	  <%= image_tag 'logo.jpg', size: '130x100' %>
 	   <p><%= search_form_for @search,url: user_counselings_search_path do |f| %>
-   <%= f.text_field :title_cont ,placeholder: '相談タイトル検索' %>
+   <%= f.text_field :title_cont ,placeholder: '相談タイトル検索', required: true%>
    <%= f.submit ("検索") ,class:"btn btn-success ml-3"%>
    <% end %>
   </div>
