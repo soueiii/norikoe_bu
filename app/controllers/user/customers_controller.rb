@@ -1,6 +1,5 @@
 class User::CustomersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :correct_user, only: %i[show edit confirm]
+  before_action :correct_user, only: [:show, :edit, :confirm]
 
   def show
     @user = User.find(params[:id])

@@ -13,7 +13,7 @@
 <%= flash[:notic] %>
 <div class="title mt-4">
   <div class="title" style="word-wrap:break-word;">
-   <div scope=col style"#width:33%;">
+   <div class="col">
     <%= @counseling.title %>
     </div>
    </div>
@@ -42,7 +42,7 @@
  <div class="col-md-10 offset-2">
    <h5>相談内容</h5>
      <div class="text" style="word-wrap:break-word;"><h5><%= @counseling.content %></h5></div>
-     
+
      <% if @counseling.user == current_user %>
         <div>
          <%= link_to "削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"},class:"btn btn-danger" %>
@@ -61,7 +61,7 @@
       <table class= table style="table-layout:fixed;width:100%;">
        <thead>
        <tr class="border-bottom" style="word-wrap:break-word;">
-        <th scope=col style"#width:33%;">
+        <th>
          <p class="text mt-2"><%= answer.content %></p>
           <% if current_user.good_by?(answer.id) %>
            <%= link_to 'いいねを外す', user_destroy_good_path(answer), method: :DELETE %>

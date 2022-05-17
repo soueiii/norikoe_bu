@@ -6,11 +6,11 @@
     <table class=table style="table-layout:fixed;width:90%;">
     <thead>
      <tr class="boder-bottm" style="word-wrap:break-word;">
-      <th scope=col style"#width;¥:33%;">
+      <th>
        <p>相談タイトル <%= @counseling.title %></p>
        <p>辛さのレベル<%= @counseling.level %></p>
        <p><%= @counseling.content %></p>
-       <%= link_to "この相談を削除する", admin_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？(この相談に送られている回答も削除されます)"},class:"btn btn-success" %>
+       <%= link_to "この相談を削除する", admin_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？(この相談に送られている回答も削除されます)"},class:"btn btn-danger" %>
       </th>
      </tr>
     </thead>
