@@ -5,34 +5,33 @@
     <%= @user.name %>さんのマイページ
    </div>
     <%= attachment_image_tag @user, :image, :fill, 120, 120, format: 'jpeg', class:"exmaple-hoge", fallback: "no_image.jpg", size:"200x200" %><br>
-  </div>
-  <div class="col-md-10 offset-2 mt-3">
-  <h5>所属部活</h5>
-  <p><%= @user.club %></p>
-  <h5>自己紹介</h5>
-  <div class="text" style="word-wrap:break-word;">
+   </div>
+   <div class="col-md-10 offset-2 mt-3">
+    <h5>所属部活</h5>
+    <p><%= @user.club %></p>
+    <h5>自己紹介</h5>
+   <div class="text" style="word-wrap:break-word;">
     <%= @user.self_introduction %><br>
    </div>
-  <% if @user.id == current_user.id %>
+   <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィールを編集する", edit_user_customer_path(@user),class:"btn btn-success" %></p>
     <p><%= link_to "退会はこちら", user_confirm_path,class:"btn btn-danger" %></p>
+   <% end %>
+  <%if current_user.id == @user.id %>
+   <div class="title mt-5">相談タイトル一覧</div>
+    <% @counselings.each do |counseling| %>
+     <table class=table style="table-layout:fixed;width:90%;">
+      <thead>
+       <tr class="boder-bottm" style="word-wrap:break-word;">
+        <th>
+         <p><%= counseling.title %></p>
+         <p><%= link_to "この相談の詳細を見る", user_counseling_path(counseling) %></p>
+        </th>
+       </tr>
+      </thead>
+     </table>
     <% end %>
-<%if current_user.id == @user.id %>
- <div class="title mt-5">相談タイトル一覧</div>
-  <% @counselings.each do |counseling| %>
-  <table class=table style="table-layout:fixed;width:90%;">
-   <thead>
-    <tr class="boder-bottm" style="word-wrap:break-word;">
-     <th>
-      <p><%= counseling.title %></p>
-      <p><%= link_to "この相談の詳細を見る", user_counseling_path(counseling) %></p>
-      </th>
-    </tr>
-   </thead>
- </table>
-  <% end %>
-<% end %>
-
+   <% end %>
   </div>
  </div>
 </div>

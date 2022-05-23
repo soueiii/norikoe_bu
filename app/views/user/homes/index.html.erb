@@ -4,10 +4,10 @@
    <div class="row">
     <div class="col-md-8 offset-4">
      <div class="text">
-     のりこえ部は、部活が辛く悩んでいる方に向けた相談サイトです。<br>
-     同じ境遇、過去そうだった方が回答者となり、<br>
-     相談者の心を少しでも軽くすることが目的です。<br>
-     ぜひ今部活の関係で悩んでいることがあればご相談下さい。<br>(相談には会員登録が必要になります。)<br>
+      のりこえ部は、部活が辛く悩んでいる方に向けた相談サイトです。<br>
+      同じ境遇、過去そうだった方が回答者となり、<br>
+      相談者の心を少しでも軽くすることが目的です。<br>
+      ぜひ今部活の関係で悩んでいることがあればご相談下さい。<br>(相談には会員登録が必要になります。)<br>
      <div class="count mt-2">現在、<h2 style="display:inline;"><%= @count %></h2>&nbsp件の相談が投稿されています。</div>
     </div>
    </div>
@@ -16,10 +16,10 @@
  <% @counselings.each do |counseling| %>
  <table class= table style="table-layout:fixed;width:100%;">
   <thead>
-  <tr class="border-bottom" style="word-wrap:break-word;">
-   <th>
-    <h5>
-     <%= link_to user_counseling_path(counseling) do %>
+   <tr class="border-bottom" style="word-wrap:break-word;">
+    <th>
+     <h5>
+      <%= link_to user_counseling_path(counseling) do %>
       <%= counseling.title %>
      <% end %>
     </h5>
@@ -34,6 +34,5 @@
   <% end %>
  </table>
 </div>
-
-  <%= paginate @counselings %>
+<%= paginate @counselings %>
 

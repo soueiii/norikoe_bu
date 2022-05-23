@@ -1,14 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-2"> <% if @answer.errors.any? %>
-    <div class = "alert">
+ <div class="row">
+  <div class="col-md-10 offset-2"> <% if @answer.errors.any? %>
+   <div class = "alert">
     <ul>
       <% @answer.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
-
 <% end %>
 <%= flash[:notic] %>
 <div class="title mt-4">
@@ -30,30 +29,33 @@
   <h5>自己紹介</h5>
  </div>
  <div class="col-md-4 mt-3">
-  <h5><%= @counseling.user.name %></h5>
-  <h5><%= @counseling.user.club %></h5>
-  <h5><%= @counseling.level %></h5>
-  <h5><%= @counseling.genre.genre %></h5>
- <div class="text" style="word-wrap:break-word;">
-  <h5><%= @counseling.user.self_introduction %></h5>
- </div>
+   <h5><%= @counseling.user.name %></h5>
+   <h5><%= @counseling.user.club %></h5>
+   <h5><%= @counseling.level %></h5>
+   <h5><%= @counseling.genre.genre %></h5>
+  <div class="text" style="word-wrap:break-word;">
+   <h5><%= @counseling.user.self_introduction %></h5>
+  </div>
  </div>
   <br>
  <div class="col-md-10 offset-2">
    <h5>相談内容</h5>
-     <div class="text" style="word-wrap:break-word;"><h5><%= @counseling.content %></h5></div>
-
-     <% if @counseling.user == current_user %>
-        <div>
-         <%= link_to "削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"},class:"btn btn-danger" %>
-         <%= link_to "編集する", edit_user_counseling_path(@counseling),class:"btn btn-success" %><br><br>
-        </div>
-      <% end %>
-      <div class="border-bottom">
+     <div class="text" style="word-wrap:break-word;">
+      <h5>
+       <%= @counseling.content %>
+     </h5>
+    </div>
+    <% if @counseling.user == current_user %>
+     <div>
+      <%= link_to "削除する", user_counseling_path(@counseling), method: :delete, data: {confirm: "相談を削除してよろしいですか？"},class:"btn btn-danger" %>
+      <%= link_to "編集する", edit_user_counseling_path(@counseling),class:"btn btn-success" %><br><br>
+     </div>
+    <% end %>
+    <div class="border-bottom">
      <%= form_with(model:[@counseling, @answer],url:user_counseling_answers_path(@counseling), local: true) do |f| %>
-       <p><%= f.text_area :content, rows:'5',placeholder: "この相談に回答する", size: "80x3" %></p>
-       <%= f.submit "送信する",class:"btn btn-success" %>
-       <p>(回答によくないねが5個以上つくと削除される場合があります。)</p>
+      <p><%= f.text_area :content, rows:'5',placeholder: "この相談に回答する", size: "80x3" %></p>
+      <%= f.submit "送信する",class:"btn btn-success" %>
+      <p>(回答によくないねが5個以上つくと削除される場合があります。)</p>
      <% end %>
      <h4 class="mt-2">合計<%= @counseling.answers.count %>件の回答が届いています。</h4>
      </div>

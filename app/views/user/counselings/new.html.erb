@@ -1,5 +1,7 @@
 <div class="text-center">
- <div class="title mt-3">相談を投稿する</div>
+ <div class="title mt-3">
+  相談を投稿する
+ </div>
   <% if @counseling.errors.any? %>
    <div class = "alert">
     <ul>
@@ -10,19 +12,15 @@
   </div>
  <% end %>
 <div class="text-center">
-<%= form_with model:@counseling, url: user_counselings_path,local:true do |f| %>
+ <%= form_with model:@counseling, url: user_counselings_path,local:true do |f| %>
    <%= f.label :title,"相談タイトル" %><br>
    <p><%= f.text_field :title %></p>
-
    相談のジャンル<br>
    <p><%= collection_select(:genre, :name, @genres, :id, :genre) %></p>
-
    <%= f.label :level,"辛さのレベル" %>(1~5で選択して下さい。)<br>
    <p><%= f.number_field :level, in: 1..5 %></p>
-
    <%= f.label :content,"相談内容" %><br>
    <p><%= f.text_area :content, size: "40x10"%></p>
-
    <p><%= f.submit'相談を投稿する',class:"btn btn-success" %></p>
   <% end %>
  </div>
