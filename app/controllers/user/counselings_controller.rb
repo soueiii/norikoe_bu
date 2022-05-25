@@ -23,6 +23,7 @@ class User::CounselingsController < ApplicationController
   def show
     @counseling = Counseling.find(params[:id])
     @answer = Answer.new
+    @user = @counseling.user
   end
 
   def edit
