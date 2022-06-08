@@ -34,7 +34,7 @@
 ### [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1F32HZ9o5Omd8F_iQpOre0us6zEzZU_01LxQNdzT3hiY/edit#gid=0)
 
 ### 開発環境
-- OS：Linux(CentOS)
+- OS：Linux 2(CentOS)
 - 言語：HTML,CSS,Ruby,SQL
 - フレームワーク：Ruby on Rails,bootstrap
 - IDE：Cloud9
